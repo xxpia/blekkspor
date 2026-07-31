@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+
+    <!-- ============================== DOKUMENT ============================== -->
+
+    <!-- ------------------------------- GENERELT ------------------------------ -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Historietittel | blekkspor</title>
+
+    <link
+        rel="icon"
+        href="../favicon.svg"
+        type="image/svg+xml">
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css">
+
+
+    <!-- ------------------------------- FONTER -------------------------------- -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Crimson+Pro:wght@400;500&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- ============================== HEADER ================================ -->
+
+    <header>
+
+        <!-- ------------------------------- TITTEL ------------------------------- -->
+
+        <h1 class="site-title">
+
+            <a href="../index.html">
+                blekkspor
+            </a>
+
+        </h1>
+
+
+        <!-- ---------------------------- NAVIGASJON ---------------------------- -->
+
+        <nav class="main-nav">
+
+            <a href="../index.html">
+                hjem
+            </a>
+
+            <span aria-hidden="true">·</span>
+
+            <a href="../archive.html">
+                arkiv
+            </a>
+
+            <span aria-hidden="true">·</span>
+
+            <a href="../about.html">
+                om
+            </a>
+
+            <span aria-hidden="true">·</span>
+
+            <a href="../categories.html">
+                kategorier
+            </a>
+
+        </nav>
+
+
+        <!-- ------------------------------ TEMAKNAPP ---------------------------- -->
+
+        <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Bytt mellom lys og mørk modus">
+
+            ☾
+
+        </button>
+
+    </header>
+
+
+    <!-- =============================== MAIN ================================= -->
+
+    <main class="story-page">
+
+        <!-- ------------------------------- TILBAKE ------------------------------ -->
+
+        <p class="story-back">
+
+            <a href="../archive.html">
+                ← tilbake til arkivet
+            </a>
+
+        </p>
+
+
+        <!-- ------------------------------- HISTORIE ----------------------------- -->
+
+        <article class="story story-novella">
+
+            <!-- ------------------------------ TITTEL ----------------------------- -->
+
+            <h2 id="story-title">
+                Historietittel
+            </h2>
+
+
+            <!-- --------------------------- HISTORIETEKST ------------------------- -->
+
+            <div
+                id="story-body"
+                class="story-body">
+
+                <p>
+                    Første avsnitt...
+                </p>
+
+                <p>
+                    Andre avsnitt...
+                </p>
+
+            </div>
+
+
+            <!-- --------------------------- HISTORIEMETA -------------------------- -->
+
+            <div class="story-meta">
+
+                <span
+                    id="story-category"
+                    class="story-category">
+
+                    novelle
+
+                </span>
+
+                <span
+                    id="story-meta-separator"
+                    aria-hidden="true">
+
+                    ·
+
+                </span>
+
+                <span
+                    id="story-date"
+                    class="written-date">
+
+                    skrevet 2026
+
+                </span>
+
+            </div>
+
+
+            <!-- --------------------------- HISTORIEINFO -------------------------- -->
+
+            <footer
+                id="story-footer"
+                class="story-footer">
+
+                <!-- ---------------------------- KOMMENTAR --------------------------- -->
+
+                <div
+                    id="story-comment"
+                    class="story-comment"
+                    hidden>
+                </div>
+
+
+                <!-- ------------------------- HISTORIEDETALJER ----------------------- -->
+
+                <dl class="story-information">
+
+                    <div class="story-information-item">
+
+                        <dt>
+                            kategori
+                        </dt>
+
+                        <dd id="story-info-category">
+                            novelle
+                        </dd>
+
+                    </div>
+
+
+                    <div class="story-information-item">
+
+                        <dt>
+                            ord
+                        </dt>
+
+                        <dd id="story-info-word-count">
+                            0
+                        </dd>
+
+                    </div>
+
+                </dl>
+
+            </footer>
+
+        </article>
+
+
+        <!-- ---------------------------- HISTORIENAV ---------------------------- -->
+
+        <nav class="story-nav">
+
+            <a
+                id="story-previous"
+                class="story-previous"
+                href="#">
+
+                ← forrige
+
+            </a>
+
+
+            <a
+                class="story-back-home"
+                href="../index.html">
+
+                tilbake til blekkspor
+
+            </a>
+
+
+            <a
+                id="story-next"
+                class="story-next"
+                href="#">
+
+                neste →
+
+            </a>
+
+        </nav>
+
+    </main>
+
+
+    <!-- ============================== FOOTER ================================ -->
+
+    <footer>
+
+        <!-- ------------------------------- DIVIDER ------------------------------ -->
+
+        <div class="footer-divider">
+            ✿
+        </div>
+
+
+        <!-- ------------------------------ COPYRIGHT ----------------------------- -->
+
+        <p class="footer-text">
+
+            &copy;
+
+            <span id="year"></span>
+
+            <a href="../index.html">
+                blekkspor
+            </a>
+
+            <span aria-hidden="true">·</span>
+
+            <a href="../privacy.html">
+                personvern
+            </a>
+
+        </p>
+
+    </footer>
+
+
+    <!-- ============================ JAVASCRIPT ============================== -->
+
+    <script src="../js/main.js"></script>
+
+    <script src="../js/story-navigation.js"></script>
+
+    <script src="../js/story-loader.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="no">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Administrasjon | blekkspor</title>
+
+    <link rel="stylesheet" href="../CSS/admin.css">
+
+</head>
+
+<body class="admin-page">
+
+    <header class="admin-header">
+
+        <a class="site-name" href="../index.html">
+            blekkspor
+        </a>
+
+        <p class="admin-label">
+            administrasjon
+        </p>
+
+        <button
+            id="theme-toggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Bytt mellom lyst og mørkt tema"
+        >
+            <span aria-hidden="true">☾</span>
+        </button>
+
+        <p class="admin-intro">
+            oj, snublet du hit? trykk på <em>blekkspor</em>, så kommer du tilbake på riktig spor.
+        </p>
+
+    </header>
+
+
+
+    <nav class="admin-nav" aria-label="Administrasjonsmeny">
+
+        <a
+        class="logout-link"
+        href="../index.html"
+        >
+        logg ut
+    </a>
+
+    </nav>
+
+        <div class="admin-divider" aria-hidden="true">
+            <span>✦</span>
+        </div>
+
+            <form id="login-form">
+
+                <div class="form-field">
+
+                    <label class="field-title" for="password">
+                        Administratorkode
+                    </label>
+
+                    <input
+                        id="password"
+                        name="password"
+                        type="password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                </div>
+
+                <p
+                    id="login-status"
+                    class="form-status"
+                    aria-live="polite"
+                ></p>
+
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Fortsett
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <script src="../JS/main.js"></script>
+    <script src="admin-config.js"></script>
+    <script src="admin-index.js"></script>
+
+</body>
+
+</html>

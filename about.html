@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+
+    <!-- ============================== DOKUMENT ============================== -->
+
+    <!-- ------------------------------- GENERELT ------------------------------ -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>om | blekkspor</title>
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <!-- ------------------------------- FONTER -------------------------------- -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Crimson+Pro:wght@400;500&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- ============================== HEADER ================================ -->
+
+    <header>
+
+        <!-- ------------------------------- TITTEL -------------------------------- -->
+
+        <h1 class="site-title">
+            <a href="index.html">blekkspor</a>
+        </h1>
+
+
+        <!-- ------------------------------- NAVIGASJON ---------------------------- -->
+
+        <nav class="main-nav">
+
+            <a href="index.html">hjem</a>
+            <span>·</span>
+
+            <a href="archive.html">arkiv</a>
+            <span>·</span>
+
+            <a href="about.html">om</a>
+            <span>·</span>
+
+            <a href="categories.html">kategorier</a>
+
+        </nav>
+
+
+        <!-- ------------------------------- TEMAKNAPP ----------------------------- -->
+
+        <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Bytt mellom lys og mørk modus">
+
+            ☾
+
+        </button>
+
+    </header>
+
+
+    <!-- =============================== MAIN ================================= -->
+
+    <main class="about-page">
+
+        <!-- ------------------------------- INTRO --------------------------------- -->
+
+        <h2>om</h2>
+
+        <p class="about-intro">
+            blekk legger spor.
+        </p>
+
+        <div class="page-divider">
+            <span>✿</span>
+        </div>
+
+
+        <!-- ------------------------------- HOVEDINNHOLD -------------------------- -->
+
+        <section class="quote-section">
+
+            <blockquote id="quote"></blockquote>
+
+            <cite id="author"></cite>
+
+        </section>
+
+    </main>
+
+
+    <!-- ============================== FOOTER ================================ -->
+
+    <footer>
+
+        <!-- ------------------------------- DIVIDER ------------------------------- -->
+
+        <div class="footer-divider">✿</div>
+
+
+        <!-- ------------------------------- COPYRIGHT ---------------------------- -->
+
+        <p class="footer-text">
+            &copy; <span id="year"></span>
+            <a href="index.html">blekkspor</a>
+            <span aria-hidden="true">·</span>
+            <a href="privacy.html">personvern</a>
+
+            <span id="admin-footer-link" hidden>
+
+                <span aria-hidden="true">·</span>
+
+                <a href="ADMIN/admin-index.html">admin</a>
+            </span>
+
+
+    </footer>
+
+
+    <!-- ============================ JAVASCRIPT ============================== -->
+
+    <script src="../js/main.js"></script>
+    <script src="../js/quotes.js"></script>
+    <script src="../js/story-navigation.js"></script>
+    <script src="../js/story-loader.js"></script>
+
+</body>
+
+</html>

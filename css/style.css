@@ -1,0 +1,1241 @@
+/*==============================================================================
+    VARIABLER
+==============================================================================*/
+
+/* ------------------------------- FARGER ------------------------------------- */
+
+/* Farger brukt gjennom hele nettstedet. */
+
+:root {
+    --background: #f7f3eb;
+    --text: #2f2f2f;
+
+    --link: #b9912c;
+    --link-hover: #96741f;
+
+    --border: #ded6c7;
+
+    --text-muted: #777;
+    --text-subtle: #888;
+
+    --card-background: transparent;
+}
+
+
+/* ------------------------------- TYPOGRAFI ---------------------------------- */
+
+/* Skrifttyper brukt gjennom hele nettstedet. */
+
+:root {
+    --font-body: "Crimson Pro", serif;
+    --font-heading: "Cormorant Garamond", serif;
+}
+
+
+/* ------------------------------- SPACING ------------------------------------ */
+
+/* Standardbredder og avstander brukt på flere sider. */
+
+:root {
+    --content-width: 700px;
+    --wide-content-width: 900px;
+    --page-padding: 2rem;
+}
+
+
+
+/*==============================================================================
+    GENERELT
+==============================================================================*/
+
+/* ------------------------------- NULLSTILLING ------------------------------- */
+
+/* Fjerner nettleserens standardavstander og gir mer forutsigbar størrelsesberegning. */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ------------------------------- SIDEOPPSETT ------------------------------- */
+
+body {
+    background: var(--background);
+    color: var(--text);
+
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.9;
+}
+
+main {
+    width: 100%;
+    max-width: var(--content-width);
+
+    margin: 0 auto;
+    padding: 0 var(--page-padding) 3rem;
+}
+
+
+/* ------------------------------- TYPOGRAFI --------------------------------- */
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+}
+
+
+/* ------------------------------- LENKER ------------------------------------ */
+
+a {
+    color: var(--link);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+
+/* ------------------------------- RESET -------------------------------------- */
+/* Standard nullstilling av nettleserstiler. */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ------------------------------- BODY --------------------------------------- */
+/* Grunnleggende oppsett for hele siden. */
+
+body {
+    background: var(--background);
+    color: var(--text);
+
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.9;
+}
+
+
+/* ------------------------------- BRØDTEKST ---------------------------------- */
+/* Vanlig tekst, avsnitt og overskrifter. */
+
+main {
+    width: 100%;
+    max-width: var(--content-width);
+
+    margin: 0 auto;
+    padding: 0 var(--page-padding) 3rem;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+}
+
+
+/* ------------------------------- LENKER ------------------------------------- */
+/* Standard utseende på lenker. */
+
+a {
+    color: var(--link);
+}
+
+a:hover {
+    color: var(--link-hover);
+    letter-spacing: 0.2em;
+}
+
+
+/* ------------------------------- LISTER ------------------------------------- */
+/* ul, ol og li. */
+
+ul,
+ol {
+    padding-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+
+/* ------------------------------- BILDER ------------------------------------- */
+/* img og andre generelle medier. */
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+
+/*==============================================================================
+    HEADER
+==============================================================================*/
+
+/* ------------------------------- HEADER ------------------------------------- */
+/* Nettstedets overskrift og logo. */
+
+header {
+    margin: 4rem 0 1rem;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 1.5rem;
+
+    font-size: 4rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+}
+
+.site-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.site-title a:hover {
+    color: var(--link);
+}
+
+
+/* ------------------------------- NAVIGASJON --------------------------------- */
+/* Hovednavigasjonen mellom sidene. */
+
+.main-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.main-nav a {
+    color: var(--link);
+
+    font-size: 1.05rem;
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.main-nav a:hover {
+    color: var(--link-hover);
+}
+
+.main-nav a.active {
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+}
+
+
+/* ------------------------------- TEMAKNAPP ---------------------------------- */
+/* Knapp for å bytte mellom lys og mørk modus. */
+
+.theme-toggle {
+    display: block;
+
+    margin: 1rem auto 0;
+    padding: 0;
+
+    background: transparent;
+    border: none;
+
+    color: var(--text);
+
+    font-family: inherit;
+    font-size: 1.3rem;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+.theme-toggle:hover {
+    color: var(--link);
+}
+
+.theme-toggle:focus-visible {
+    outline: 1px solid var(--link);
+    outline-offset: 0.4rem;
+}
+
+
+/*==============================================================================
+    HOVEDSIDER
+==============================================================================*/
+
+/* Felles oppsett for sideoverskrifter og introduksjonstekst. */
+
+/* ------------------------------- SIDEOVERSKRIFTER -------------------------- */
+
+.home-page,
+.archive-page,
+.about-page,
+.privacy-page,
+.categories-page {
+    max-width: var(--wide-content-width);
+    margin: 0 auto;
+}
+
+.home-page > h2,
+.archive-page > h2,
+.about-page > h2,
+.privacy-page > h2,
+.categories-page > h2 {
+    margin-bottom: 0.5rem;
+
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.home-intro,
+.archive-intro,
+.about-intro,
+.privacy-intro,
+.categories-intro {
+    margin: 0 0 4rem;
+
+    color: var(--text-muted);
+    text-align: center;
+}
+
+
+/* ------------------------------- FORSIDE ------------------------------------ */
+/* Introduksjon og nyeste historier på forsiden. */
+
+.home-intro h2 {
+    margin-bottom: 1rem;
+
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.home-intro p {
+    color: var(--text);
+}
+
+.latest-stories > h2 {
+    margin-bottom: 2rem;
+
+    text-align: center;
+}
+
+#latest-stories {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0 var(--page-padding);
+}
+
+
+/* ------------------------------- OM ----------------------------------------- */
+/* Tekst og sitater på Om-siden. */
+
+.about-text {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.about-text p {
+    margin-bottom: 1.6rem;
+}
+
+.quote-section {
+    max-width: var(--content-width);
+    margin: 0 auto 4rem;
+
+    text-align: center;
+}
+
+.quote-section blockquote {
+    margin-bottom: 1rem;
+
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.quote-section cite {
+    display: block;
+
+    color: var(--text-muted);
+
+    font-size: 0.95rem;
+    font-style: normal;
+}
+
+
+/* ------------------------------- KATEGORIER --------------------------------- */
+/* Kort og resultatvisning på kategorisiden. */
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.category-card {
+    display: block;
+
+    width: 100%;
+    padding: 2rem;
+
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    color: inherit;
+
+    font-family: inherit;
+    text-align: center;
+    text-decoration: none;
+
+    appearance: none;
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.category-card:hover {
+    border-color: var(--link);
+    transform: translateY(-4px);
+    letter-spacing: 0.2em;
+}
+
+.category-card h3 {
+    margin: 0 0 1rem;
+
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.category-card p {
+    margin: 0;
+
+    color: var(--text-muted);
+}
+
+.category-card.active {
+    background: rgba(185, 145, 44, 0.08);
+    border-color: var(--link);
+}
+
+#category-results {
+    margin-top: 5rem;
+}
+
+
+/* ------------------------------- ARKIV -------------------------------------- */
+/* Liste over publiserte historier. */
+
+#archive-list {
+    display: flex;
+    flex-direction: column;
+
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0 var(--page-padding);
+}
+
+.archive-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+
+    margin-bottom: 3rem;
+    font-size: 0.85rem;
+}
+
+.archive-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.archive-description {
+    margin: 0;
+
+    font-size: 0.9rem;
+    font-style: italic;
+
+    color: var(--text-muted);
+}
+
+.archive-page a {
+    color: var(--text);
+}
+
+.archive-page a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+/* ------------------------------- 404 ---------------------------------------- */
+/* Feilmelding når en side ikke finnes. */
+
+.error-page {
+    min-height: 55vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.error-number {
+    margin: 0;
+
+    color: var(--link);
+
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.error-symbol {
+    margin: 0.5rem 0 1rem;
+
+    color: var(--link);
+
+    font-size: 2rem;
+}
+
+.error-page h2 {
+    margin-bottom: 1rem;
+}
+
+.error-page p {
+    max-width: 30rem;
+}
+
+.error-link {
+    margin-top: 2rem;
+
+    text-decoration: none;
+}
+
+.error-link:hover {
+    text-decoration: underline;
+}
+
+/* ------------------------------- PRIVACY ------------------------------------- */
+/* Enkel informasjon om hvordan blekkspor håndterer personvern.*/
+
+.privacy-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+
+/*==============================================================================
+    HISTORIER
+==============================================================================*/
+
+/* ------------------------------- HISTORIESIDE ----------------------------- */
+
+.story-page {
+    max-width: var(--wide-content-width);
+    margin: 0 auto;
+}
+
+/* ------------------------------- STORY -------------------------------------- */
+/* Selve historiebeholderen. */
+
+.story {
+    max-width: var(--content-width);
+    margin: 0 auto;
+}
+
+.story h1 {
+    text-align: left;
+}
+
+.story h2 {
+    margin-bottom: 0.75rem;
+
+    text-align: center;
+}
+
+.story-back {
+    display: inline-block;
+
+    margin-bottom: 3rem;
+
+    color: var(--link);
+
+    font-size: 0.95rem;
+    text-decoration: none;
+}
+
+.story-back:hover {
+    color: var(--link-hover);
+}
+
+
+/* ------------------------------- STORY BODY --------------------------------- */
+/* Brødteksten i historien. */
+
+.story-body p {
+    margin-bottom: 1.5rem;
+}
+
+
+/* ------------------------------- STORY META --------------------------------- */
+/* Informasjon om historien, samt navigasjon mellom historier. */
+
+.story-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+
+    border-top: 1px solid var(--border);
+}
+
+.story-footer p:last-child {
+    margin-bottom: 0;
+}
+
+.story-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    margin-bottom: 3rem;
+
+    color: var(--text-muted);
+
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+
+.story-information {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+
+    margin: 0;
+
+    text-align: center;
+}
+
+.story-information-item dt {
+    color: var(--text-muted);
+
+    font-size: 0.85rem;
+    text-transform: lowercase;
+}
+
+.story-information-item dd {
+    margin: 0;
+
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+}
+
+.story-comment {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+
+    border-top: 1px solid var(--border);
+}
+
+.story-comment p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ------------------------------- STORY NAV ---------------------------------- */
+/* Navigasjon mellom historier. */
+
+.story-nav {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+
+    width: 100%;
+    max-width: var(--content-width);
+
+    margin: 4rem auto;
+    gap: 2rem;
+}
+
+.story-nav a {
+    color: var(--link);
+    text-decoration: none;
+}
+
+.story-nav a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+.story-previous {
+    text-align: left;
+}
+
+.story-back-home {
+    text-align: center;
+}
+
+.story-next {
+    text-align: right;
+}
+
+
+/* ------------------------------- NOVELLE ------------------------------------ */
+/* Styling spesifikk for noveller. */
+
+.story-novella {
+    text-align: left;
+}
+
+
+/* ------------------------------- DIKT --------------------------------------- */
+/* Styling spesifikk for dikt. */
+
+.story-poem {
+    text-align: center;
+}
+
+.story-poem .story-body {
+    line-height: 1;
+}
+
+.story-poem .story-body p {
+    margin-bottom: 0.5rem;
+}
+
+.story-poem .story-body p:last-child {
+    margin-bottom: 4rem;
+}
+
+/* ------------------------------- UTDRAG ------------------------------------- */
+/* Styling for historier publisert som utdrag. */
+
+.story-excerpt {
+    text-align: left;
+    line-height: 2;
+}
+
+.story-excerpt .story-body {
+    font-family: "Courier New", monospace;
+    line-height: 2;
+}
+
+/* ------------------------------- KORTPROSA ----------------------------------- */
+/* Styling for historier publisert som kortprosa. */
+
+.story-shortprose {
+    text-align: left;
+    line-height: 2;
+}
+
+/*==============================================================================
+    KOMPONENTER
+==============================================================================*/
+
+/* ------------------------------- STORY CARD --------------------------------- */
+/* Gjør hele forhåndsvisningen klikkbar. */
+
+.story-card {
+    display: block;
+
+    color: inherit;
+    text-decoration: none;
+}
+
+.story-card .story-preview {
+    transition: transform 0.2s ease;
+}
+
+.story-card:hover .story-preview {
+    transform: translateY(-3px);
+}
+
+.story-card:hover .story-read-more {
+    color: var(--link);
+}
+
+.story-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.story-link:hover {
+    text-decoration: none;
+}
+
+
+/* ------------------------------- STORY PREVIEW ------------------------------ */
+/* Forhåndsvisning av historier på forsiden og andre oversiktssider. */
+
+.story-preview {
+    margin-bottom: 5rem;
+
+    text-align: center;
+}
+
+.story-preview h2 {
+    margin-bottom: 0.8rem;
+
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+.story-excerpt {
+    margin-bottom: 1rem;
+}
+
+.story-read-more {
+    display: block;
+
+    width: fit-content;
+    margin: 0 auto 0.5rem;
+
+    color: var(--link);
+
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+}
+
+.story-read-more:hover {
+    color: var(--link-hover);
+}
+
+.written-date {
+    margin-top: 0;
+
+    color: var(--text-muted);
+
+    font-size: 0.9rem;
+}
+
+.story-preview-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+
+    margin-bottom: 5rem;
+
+    text-align: center;
+}
+
+.story-preview-nav span {
+    color: var(--text-muted);
+
+    font-size: 0.9rem;
+}
+
+/* ------------------------------- HISTORIE KORT ------------------------------------ */
+/* Styling over historiekort på forsiden og i arkivet. */
+
+.latest-story,
+.archive-story {
+
+    position: relative;
+
+    max-width: var(--content-width);
+
+    margin: 0 auto 2rem;
+
+    text-align: center;
+
+}
+
+.latest-story-title,
+.archive-story-title {
+    margin-bottom: 0.8rem;
+
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+.latest-story-title a,
+.archive-story-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.latest-story-title a:hover,
+.archive-story-title a:hover {
+    color: var(--link);
+    letter-spacing: normal;
+}
+
+.latest-story-information,
+.archive-story-information {
+    margin-bottom: 1rem;
+
+    color: var(--text-muted);
+
+    font-size: 0.9rem;
+}
+
+.latest-story-summary,
+.archive-story-summary {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.latest-story-link,
+.archive-story-link {
+    display: block;
+
+    width: fit-content;
+    margin: 0 auto 0.5rem;
+
+    color: var(--link);
+
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+}
+
+.latest-story-link:hover,
+.archive-story-link:hover {
+    color: var(--link-hover);
+    letter-spacing: normal;
+}
+
+.latest-stories-status,
+.latest-stories-empty,
+.latest-stories-error,
+.archive-status,
+.archive-empty,
+.archive-error {
+    text-align: center;
+}
+
+.latest-stories-error,
+.archive-story-error {
+    color: var(--text-muted);
+}
+
+.latest-story-year,
+.archive-story-year {
+    font-family: "Crimson Pro", serif;
+    font-size: 0.85em;
+    font-weight: normal;
+}
+
+/* ------------------------------- DIVIDER ------------------------------------ */
+/* Dekorative skillelinjer mellom innholdsseksjoner. */
+
+.divider {
+    margin: 5rem 0;
+
+    color: var(--link);
+
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.page-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    max-width: var(--content-width);
+    margin: 4rem auto;
+
+    color: var(--border);
+}
+
+.page-divider::before,
+.page-divider::after {
+    content: "";
+
+    flex: 1;
+
+    border-top: 1px solid var(--border);
+}
+
+.page-divider span {
+    margin: 0 1.25rem;
+
+    color: var(--link);
+}
+
+/* Divider mellom historie-kortene. */
+
+.archive-story:not(:last-child)::after,
+.latest-story:not(:last-child)::after {
+
+    content: "✿";
+
+    display: block;
+
+    width: fit-content;
+
+    margin: 2rem auto 0;
+
+    font-size: 1rem;
+
+    opacity: 0.35;
+
+}
+
+
+/* ------------------------------- KNAPPER ------------------------------------ */
+/* Felles styling for vanlige knapper. */
+
+/* Foreløpig ingen generell knappestil. */
+
+/* Kategori knapper. */
+
+.archive-category,
+.archive-sort {
+    width: auto;
+    padding: 0.35rem 0.5rem;
+
+    color: var(--text);
+    background-color: var(--background);
+
+    border: none;
+    border-bottom: 1px solid var(--border);
+
+    font: inherit;
+    font-size: 0.85rem;
+    text-transform: lowercase;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+
+}
+
+.archive-category option,
+.archive-sort option {
+    color: var(--text);
+    background-color: var(--background);
+}
+
+.archive-category:hover,
+.archive-sort:hover {
+
+    color: var(--link);
+
+    border-bottom-color: var(--link);
+
+}
+
+.archive-category:focus,
+.archive-sort:focus {
+
+    outline: none;
+
+    border-bottom-color: var(--link);
+
+}
+
+
+/*==============================================================================
+    FOOTER
+==============================================================================*/
+
+/* ------------------------------- FOOTER ------------------------------------- */
+/* Nettstedets bunntekst. */
+
+footer {
+    margin-top: 8rem;
+    padding: 3rem var(--page-padding);
+
+    text-align: center;
+}
+
+.footer-divider {
+    margin-bottom: 1rem;
+
+    color: var(--link);
+
+    font-size: 1.3rem;
+}
+
+
+/* ------------------------------- COPYRIGHT ---------------------------------- */
+/* Informasjon om nettstedet og lenker i bunnteksten. */
+
+.footer-text {
+    color: var(--text-muted);
+
+    font-size: 0.9rem;
+}
+
+.footer-text a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer-text a:hover {
+    color: var(--link);
+}
+
+.footer-text span[aria-hidden="true"] {
+    margin: 0 0.5rem;
+}
+
+
+/*==============================================================================
+    FUNKSJONER
+==============================================================================*/
+
+/* ------------------------------- MØRK MODUS --------------------------------- */
+/* Fargevariabler som brukes når mørkt tema er aktivt. */
+
+[data-theme="dark"] {
+    --background: #1d1b19;
+    --text: #e8e1d6;
+
+    --link: #d5b54c;
+    --link-hover: #e5c96f;
+
+    --border: #48423b;
+
+    --text-muted: #b8afa3;
+    --text-subtle: #9f968c;
+
+    --card-background: transparent;
+}
+
+[data-theme="dark"] .latest-story-summary {
+    color: #b8b0a5;
+}
+
+[data-theme="dark"] .archive-category,
+[data-theme="dark"] .archive-sort,
+[data-theme="dark"] .archive-category option,
+[data-theme="dark"] .archive-sort option {
+    color: var(--text);
+    background-color: var(--background);
+}
+
+
+/* ------------------------------- ANIMASJONER ------------------------------- */
+/* Samlede animasjoner og bevegelser brukt på nettstedet. */
+
+/* Foreløpig ingen egne keyframe-animasjoner. */
+
+
+/* ------------------------------- HJELPEKLASSER ------------------------------ */
+/* Små klasser som kan brukes flere steder uten å tilhøre én bestemt side. */
+
+.story-link-hidden {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+/*==============================================================================
+    RESPONSIVT
+==============================================================================*/
+
+/* ------------------------------- TABLET ------------------------------------- */
+/* Tilpasninger for mellomstore skjermer. */
+
+/* Foreløpig ingen egne tablet-regler. */
+
+
+/* ------------------------------- MOBIL -------------------------------------- */
+/* Tilpasninger for mindre skjermer. */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 0 1.2rem;
+    }
+
+    header {
+        padding-top: 2rem;
+    }
+
+    .main-nav {
+        gap: 0.6rem 1rem;
+    }
+
+    main {
+        width: 100%;
+    }
+
+    .story {
+        max-width: 100%;
+    }
+
+    .story h2 {
+        font-size: 2rem;
+    }
+
+    .quote-section blockquote {
+        font-size: 1.5rem;
+    }
+
+    .quote-section cite {
+    font-size: 0.9rem;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .story-nav {
+        grid-template-columns: 1fr;
+
+        gap: 1rem;
+
+        text-align: center;
+    }
+
+    .story-previous,
+    .story-back-home,
+    .story-next {
+        width: 100%;
+        text-align: center;
+    }
+
+    footer {
+        margin-top: 5rem;
+        padding: 2rem 1rem;
+    }
+
+    .archive-entry {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .archive-meta {
+        text-align: left;
+    }
+
+    .story-information {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    }
+
+}

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+
+    <!-- ============================ META ============================ -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="robots"
+        content="noindex, nofollow"
+    >
+
+    <title>Nytt sitat | blekkspor</title>
+
+
+    <!-- ============================ CSS ============================= -->
+
+    <link rel="stylesheet" href="../css/admin.css">
+
+</head>
+
+<body class="admin-page">
+
+
+    <!-- =========================== HEADER =========================== -->
+
+    <header class="admin-header">
+
+        <a
+            class="site-name"
+            href="../index.html"
+        >
+            blekkspor
+        </a>
+
+        <p class="admin-label">
+            administrasjon
+        </p>
+
+        <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Bytt tema"
+        >
+            ☾
+        </button>
+
+    </header>
+
+
+    <!-- ======================== NAVIGASJON ========================== -->
+
+    <nav
+        class="admin-nav"
+        aria-label="Administrasjonsmeny"
+    >
+
+        <a href="admin-dashboard.html">
+            dashboard
+        </a>
+
+        <span aria-hidden="true">·</span>
+
+        <a href="admin-settings.html">
+            innstillinger
+        </a>
+
+        <span aria-hidden="true">·</span>
+
+        <button
+            id="logout-button"
+            type="button"
+        >
+            logg ut
+        </button>
+
+    </nav>
+
+
+    <!-- ========================== SKILLE ============================ -->
+
+    <div class="admin-divider">
+        <span aria-hidden="true">✦</span>
+    </div>
+
+
+    <!-- ============================ MAIN ============================ -->
+
+    <main class="admin-content">
+
+        <header class="admin-page-header">
+
+            <h1>Nytt sitat</h1>
+
+            <p>
+                Opprett et nytt sitat og generer innholdet til JSON-filen.
+            </p>
+
+        </header>
+
+
+        <!-- ========================== SKJEMA ======================== -->
+
+        <form id="quote-form">
+
+            <div class="form-field">
+
+                <label
+                    class="field-title"
+                    for="quote-text"
+                >
+                    Sitat
+                </label>
+
+                <textarea
+                    id="quote-text"
+                    name="quote"
+                    rows="6"
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-field">
+
+                <label
+                    class="field-title"
+                    for="quote-author"
+                >
+                    Forfatter
+                </label>
+
+                <input
+                id="quote-author"
+                name="author"
+                type="text"
+                placeholder="Jennifer Niven"
+                >
+
+            </div>
+
+
+            <div class="form-field">
+
+                <label
+                    class="field-title"
+                    for="quote-source"
+                >
+                    Kilde
+                </label>
+
+                <input
+                    id="quote-source"
+                    name="source"
+                    type="text"
+                    placeholder="All the Bright Places"
+                >
+
+            </div>
+
+
+            <button
+                class="primary-button"
+                type="submit"
+            >
+                Lag sitat
+            </button>
+
+            <p 
+                id="save-status"
+                class="save-status"
+                role="status"
+                aria-live="polite"
+            ></p>
+
+        </form>
+
+
+        <!-- ===================== FORHÅNDSVISNING ==================== -->
+
+<section class="preview quote-preview">
+
+    <label class="field-title">
+        Forhåndsvisning
+    </label>
+
+    <blockquote id="preview-quote"></blockquote>
+
+    <cite id="preview-author"></cite>
+
+    <p id="preview-source"></p>
+
+</section>
+
+
+<!-- ====================== GENERERT JSON ===================== -->
+
+<section class="generated-code">
+
+    <label class="field-title">
+        Generert JSON
+    </label>
+
+    <pre id="generated-code"></pre>
+
+</section>
+
+    </main>
+
+
+    <!-- =========================== FOOTER =========================== -->
+
+    <footer>
+
+        &copy; <span id="year"></span>
+
+        <a href="../index.html">
+            blekkspor
+        </a>
+
+        <span aria-hidden="true">·</span>
+
+        <a href="../privacy.html">
+            personvern
+        </a>
+
+    </footer>
+
+
+    <!-- ======================== JAVASCRIPT ========================== -->
+
+    <script src="../js/main.js"></script>
+    <script src="admin-new-quote.js"></script>
+
+</body>
+
+</html>

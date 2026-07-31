@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+
+    <!-- ============================== DOKUMENT ============================== -->
+
+    <!-- ------------------------------- GENERELT ------------------------------ -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>arkiv | blekkspor</title>
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <!-- ------------------------------- FONTER -------------------------------- -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Crimson+Pro:wght@400;500&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- ============================== HEADER ================================ -->
+
+    <header>
+
+        <!-- ------------------------------- TITTEL ------------------------------ -->
+
+        <h1 class="site-title">
+            <a href="index.html">blekkspor</a>
+        </h1>
+
+
+        <!-- ----------------------------- NAVIGASJON --------------------------- -->
+
+        <nav class="main-nav">
+
+            <a href="index.html">hjem</a>
+            <span aria-hidden="true">·</span>
+
+            <a href="archive.html">arkiv</a>
+            <span aria-hidden="true">·</span>
+
+            <a href="about.html">om</a>
+            <span aria-hidden="true">·</span>
+
+            <a href="categories.html">kategorier</a>
+
+        </nav>
+
+
+        <!-- ----------------------------- TEMAKNAPP ---------------------------- -->
+
+        <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Bytt mellom lys og mørk modus">
+
+            ☾
+
+        </button>
+
+    </header>
+
+
+<!-- =============================== MAIN ================================ -->
+
+<main class="archive-page">
+
+    <!-- ------------------------------- INTRO ------------------------------ -->
+
+    <h2
+        id="archive-title"
+        class="archive-title">
+        alle tekster
+    </h2>
+
+    <p
+        id="archive-description"
+        class="archive-intro">
+        alle spor, samlet på ett sted.
+    </p>
+
+    <div class="page-divider">
+        <span>✿</span>
+    </div>
+
+
+    <!-- ------------------------------ VERKTØY ----------------------------- -->
+
+    <div class="archive-toolbar">
+
+        <label
+            class="visually-hidden"
+            for="archive-category">
+            velg kategori
+        </label>
+
+        <select
+            id="archive-category"
+            class="archive-category">
+
+            <option value="all">
+                alle tekster
+            </option>
+
+            <option value="novella">
+                noveller
+            </option>
+
+            <option value="poem">
+                dikt
+            </option>
+
+            <option value="shortprose">
+                kortprosa
+            </option>
+
+            <option value="excerpt">
+                utdrag
+            </option>
+
+        </select>
+
+
+        <label
+            class="visually-hidden"
+            for="archive-sort">
+            sorter historier
+        </label>
+
+        <select
+            id="archive-sort"
+            class="archive-sort">
+
+            <option value="newest">
+                nyeste 
+            </option>
+
+            <option value="oldest">
+                eldste
+            </option>
+
+            <option value="title">
+                alfabetisk
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <!-- ------------------------------- STATUS ----------------------------- -->
+
+    <p
+        id="archive-status"
+        class="archive-status"
+        hidden>
+    </p>
+
+
+    <!-- ------------------------------- LISTE ------------------------------ -->
+
+    <div id="archive-list"></div>
+
+</main>
+
+
+<!-- ============================== FOOTER =============================== -->
+
+<footer>
+
+    <!-- ------------------------------ DIVIDER ----------------------------- -->
+
+    <div class="footer-divider">
+        ✿
+    </div>
+
+    <!-- resten av footeren -->
+
+</footer>
+
+
+        <!-- ----------------------------- COPYRIGHT --------------------------- -->
+
+        <p class="footer-text">
+
+            &copy;
+            <span id="year"></span>
+
+            <a href="index.html">
+                blekkspor
+            </a>
+
+            <span aria-hidden="true">·</span>
+
+            <a href="privacy.html">
+                personvern
+            </a>
+
+            <span
+                id="admin-footer-link"
+                hidden>
+
+                <span aria-hidden="true">·</span>
+
+                <a href="ADMIN/admin-index.html">
+                    admin
+                </a>
+
+            </span>
+
+        </p>
+
+    </footer>
+
+
+    <!-- ============================ JAVASCRIPT ============================= -->
+
+    <script src="js/main.js"></script>
+    <script src="js/category-filter.js"></script>
+    <script src="js/story-sort.js"></script>
+    <script src="js/archive.js"></script>
+
+</body>
+
+</html>

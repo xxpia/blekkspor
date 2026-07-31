@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+
+    <!-- ============================ META ============================ -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="robots"
+        content="noindex, nofollow"
+    >
+
+    <title>Ny historie | blekkspor</title>
+
+
+    <!-- ============================ CSS ============================= -->
+
+    <link rel="stylesheet" href="../css/admin.css">
+
+</head>
+
+<body class="admin-page">
+
+<header class="admin-header">
+
+    <a class="site-name" href="../index.html">
+        blekkspor
+    </a>
+
+    <p class="admin-label">
+        administrasjon
+    </p>
+
+    <button
+        class="theme-toggle"
+        ...
+    >
+        ☾
+    </button>
+
+</header>
+
+    <nav class="admin-nav" aria-label="Administrasjonsmeny">
+
+        <a href="admin-dashboard.html">
+            dashboard
+        </a>
+
+        <span aria-hidden="true">·</span>
+
+        <a href="admin-settings.html">
+            innstillinger
+        </a>
+
+        <span aria-hidden="true">·</span>
+
+        <button
+            id="logout-button"
+            type="button"
+        >
+            logg ut
+        </button>
+
+    </nav>
+
+<div class="admin-divider">
+    <span>✦</span>
+</div>
+    <!-- ============================ MAIN ============================ -->
+
+    <main class="admin-page">
+
+        <section class="admin-panel">
+
+            <section class="admin-intro">
+                <h1>ny historie</h1>
+                <p>opprett historie automatisk</p>
+            </section>
+
+
+            <!-- ========================= SKJEMA ========================= -->
+
+            <form id="new-story-form">
+
+                <!-- Tittel -->
+
+                <div class="form-field">
+
+                    <label class="field-title" for="story-title">
+                        Tittel
+                    </label>
+
+                    <input
+                        id="story-title"
+                        name="title"
+                        type="text"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Kategori -->
+
+                <div class="form-field">
+
+                    <label class="field-title" for="story-category">
+                        Kategori
+                    </label>
+
+                    <select
+                        id="story-category"
+                        name="category"
+                        required
+                    >
+
+                        <option value="">
+                            Velg kategori
+                        </option>
+
+                        <option value="novella">
+                            novelle
+                        </option>
+
+                        <option value="poem">
+                            dikt
+                        </option>
+
+                        <option value="shortprose">
+                            kortprosa
+                        </option>
+
+                        <option value="excerpt">
+                            utdrag
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Dato -->
+
+                <div class="form-field">
+
+                    <label class="field-title" for="story-date">
+                        Dato
+                    </label>
+
+                    <input
+                        id="story-date"
+                        name="date"
+                        type="text"
+                        placeholder="skrevet 2012, oppdatert 2017"
+                        required
+                    >
+
+                    <p class="field-help">
+                        Dato som skal vises.
+                   
+                        Første årstall brukes automatisk til sortering.
+                    </p>
+
+                </div>
+
+
+                <!-- Historie -->
+
+                <div class="form-field">
+
+                    <label class="field-title">
+                        Historie
+                    </label>
+
+                    <div
+                        class="editor-toolbar"
+                        role="toolbar"
+                        aria-label="Formatering av historie"
+                    >
+
+                        <button
+                            type="button"
+                            class="editor-button"
+                            data-command="bold"
+                            aria-label="Fet tekst"
+                            title="Fet tekst"
+                        >
+                            <strong>B</strong>
+                        </button>
+
+                        <button
+                            type="button"
+                            class="editor-button"
+                            data-command="italic"
+                            aria-label="Kursiv tekst"
+                            title="Kursiv tekst"
+                        >
+                            <em>I</em>
+                        </button>
+
+                        <button
+                            type="button"
+                            class="editor-button"
+                            id="insert-divider"
+                            aria-label="Sett inn skillelinje"
+                            title="Sett inn skillelinje"
+                        >
+                            ─
+                        </button>
+
+                    </div>
+
+                    <div
+                        id="story-editor"
+                        class="story-editor"
+                        contenteditable="true"
+                        role="textbox"
+                        aria-multiline="true"
+                        data-placeholder="Lim inn eller skriv historien her."
+                    ></div>
+
+                    <p class="field-help">
+                        Fet og kursiv tekst fra den innlimte teksten beholdes.
+                        Marker tekst for å endre formateringen.
+                    </p>
+
+                </div>
+
+
+
+                <!-- Sammendrag -->
+
+                <fieldset class="form-field summary-options">
+
+                    <legend class="field-title">
+                        Sammendrag
+                    </legend>
+
+                    <label class="radio-option">
+
+                        <input
+                            type="radio"
+                            name="summary-mode"
+                            value="automatic"
+                            checked
+                        >
+
+                        Automatisk sammendrag
+
+                    </label>
+
+                    <label class="radio-option">
+
+                        <input
+                            type="radio"
+                            name="summary-mode"
+                            value="custom"
+                        >
+
+                        Skriv eget sammendrag.
+
+                    </label>
+
+                    <div id="automatic-summary-preview">
+                        <p class="preview-title">
+                            Automatisk sammendrag
+                        </p>
+                        
+                        <p id="automatic-summary-text"></p>
+                    </div>
+
+                    <textarea
+                        id="story-summary"
+                        name="summary"
+                        rows="4"
+                        placeholder="Skriv et eget sammendrag."
+                        hidden
+                    ></textarea>
+
+                </fieldset>
+
+
+                <!-- Kommentar -->
+
+                <div class="form-field">
+
+                    <label class="field-title" for="story-comment">
+                        Kommentar
+                    </label>
+
+                    <textarea
+                        id="story-comment"
+                        name="comment"
+                        rows="5"
+                        placeholder="Valgfri kommentar om historien."
+                    ></textarea>
+
+                    <p class="field-help">
+                        Kommentarfeltet vises bare dersom du skriver noe her.
+                    </p>
+
+                </div>
+
+
+                <!-- Forhåndsvisning av informasjon -->
+
+                <section class="story-information-preview">
+
+                    <h2>Historieinformasjon</h2>
+
+                    <dl>
+
+                        <div>
+                            <dt>Filnavn</dt>
+                            <dd id="filename-preview">—</dd>
+                        </div>
+
+                        <div>
+                            <dt>Sorteringsår</dt>
+                            <dd id="sort-year-preview">—</dd>
+                        </div>
+
+                        <div>
+                            <dt>Ord</dt>
+                            <dd id="word-count-preview">0</dd>
+                        </div>
+
+                    </dl>
+
+                </section>
+
+
+                <!-- Status -->
+
+                <p
+                    id="form-status"
+                    class="form-status"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+
+
+                <!-- Handlinger -->
+
+                <div class="form-actions">
+
+                    <button
+                        id="create-story"
+                        class="primary-button"
+                        type="submit"
+                    >
+                        Lag historie
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    
+        <!-- =========================== test =========================== -->
+        <button id="test-folder-access" type="button">
+        Test mappetilgang
+        </button>
+
+        <p id="folder-test-status" role="status"></p>
+
+    <!-- =========================== FOOTER =========================== -->
+
+    <footer>
+
+        &copy; <span id="year"></span>
+
+        <a href="../index.html">
+            blekkspor
+        </a>
+
+        <span aria-hidden="true">·</span>
+
+        <a href="../privacy.html">
+            personvern
+        </a>
+
+    </footer>
+
+
+    <!-- ======================== JAVASCRIPT ========================== -->
+
+    <script src="../js/main.js"></script>
+    <script src="admin-new-story.js"></script>
+
+</body>
+
+</html>

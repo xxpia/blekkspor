@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html lang="no">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | blekkspor</title>
+
+    <link rel="stylesheet" href="../CSS/admin.css">
+
+</head>
+
+<body class="admin-page">
+
+    <header class="admin-header">
+
+        <a class="site-name" href="../index.html">
+            blekkspor
+        </a>
+
+        <p class="admin-label">
+            administrasjon
+        </p>
+
+        <button
+            id="theme-toggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Bytt mellom lyst og mørkt tema"
+        >
+            <span aria-hidden="true">☾</span>
+        </button>
+
+    </header>
+
+
+    <nav class="admin-nav" aria-label="Administrasjonsmeny">
+
+        <a href="admin-dashboard.html" aria-current="page">
+            dashboard
+        </a>
+
+        <span aria-hidden="true">·</span>
+
+        <a href="admin-settings.html">
+            innstillinger
+        </a>
+
+        <span aria-hidden="true">·</span>
+
+        <button
+            id="logout-button"
+            type="button"
+        >
+            logg ut
+        </button>
+
+    </nav>
+
+        <div class="admin-divider" aria-hidden="true">
+            <span>✦</span>
+        </div>
+
+
+    <main>
+
+        <h1 class="admin-heading">Dashboard</h1>
+
+        <p class="admin-intro">
+            styr sporene.
+        </p>
+
+        <div class="admin-divider" aria-hidden="true">
+            <span>✦</span>
+        </div>
+
+        <section class="admin-panel">
+
+                <a
+                    class="dashboard-action"
+                    href="admin-new-story.html"
+                >
+
+                    <h2>Ny historie</h2>
+
+                </a>
+
+
+                <a
+                    class="dashboard-action"
+                    href="admin-new-quote.html"
+                >
+
+                    <h2>Legg til sitat</h2>
+
+                </a>
+
+
+                <a
+                    class="dashboard-action"
+                    href="admin-edit-story.html"
+                >
+
+                    <h2>Endre historie</h2>
+
+                </a>
+
+
+                <a
+                    class="dashboard-action"
+                    href="admin-settings.html"
+                >
+
+                    <h2>Innstillinger</h2>
+
+                </a>
+
+
+                <button
+                    class="dashboard-action dashboard-logout"
+                    id="dashboard-logout-button"
+                    type="button"
+                >
+
+                    <span class="dashboard-action-title">
+                        Logg ut
+                    </span>
+
+                </button>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        &copy; <span id="year"></span>
+
+        <a href="../index.html">
+            blekkspor
+        </a>
+
+        <span aria-hidden="true">·</span>
+
+        <a href="../privacy.html">
+            personvern
+        </a>
+
+    </footer>
+
+
+    <script src="../JS/main.js"></script>
+    <script src="admin-dashboard.js"></script>
+
+</body>
+
+</html>

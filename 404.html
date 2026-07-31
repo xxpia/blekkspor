@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+
+    <!-- ============================== DOKUMENT ============================== -->
+
+    <!-- ------------------------------- GENERELT ------------------------------ -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Siden finnes ikke – men kanskje det finnes andre spor å følge."
+    >
+
+    <title>404 | blekkspor</title>
+
+    <link
+        rel="icon"
+        href="favicon.svg"
+        type="image/svg+xml"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+
+    <!-- ------------------------------- FONTER -------------------------------- -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Crimson+Pro:wght@400;500&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+<body>
+
+    <!-- ============================== HEADER ================================ -->
+
+    <header>
+
+        <!-- ------------------------------- TITTEL -------------------------------- -->
+
+        <h1 class="site-title">
+            <a href="index.html">blekkspor</a>
+        </h1>
+
+
+        <!-- ------------------------------- NAVIGASJON ---------------------------- -->
+
+        <nav
+            class="main-nav"
+            aria-label="Hovednavigasjon"
+        >
+
+            <a href="index.html">hjem</a>
+            <span aria-hidden="true">·</span>
+
+            <a href="archive.html">arkiv</a>
+            <span aria-hidden="true">·</span>
+
+            <a href="about.html">om</a>
+            <span aria-hidden="true">·</span>
+
+            <a href="categories.html">kategorier</a>
+
+        </nav>
+
+
+        <!-- ------------------------------- TEMAKNAPP ----------------------------- -->
+
+        <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Bytt mellom lys og mørk modus"
+        >
+            ☾
+        </button>
+
+    </header>
+
+
+    <!-- =============================== MAIN ================================= -->
+
+    <main class="error-page">
+
+        <!-- ------------------------------- INTRO --------------------------------- -->
+
+        <p
+            class="error-number"
+            aria-hidden="true"
+        >
+            404
+        </p>
+
+        <p
+            class="error-symbol"
+            aria-hidden="true"
+        >
+            ✦
+        </p>
+
+
+        <!-- ------------------------------- HOVEDINNHOLD -------------------------- -->
+
+        <h2>sporet stopper her.</h2>
+
+        <p>
+            Siden du leter etter finnes ikke,
+            eller har blitt flyttet et annet sted.
+        </p>
+
+        <a
+            class="error-link"
+            href="index.html"
+        >
+            finn tilbake til forsiden
+        </a>
+
+    </main>
+
+
+    <!-- ============================== FOOTER ================================ -->
+
+    <footer>
+
+        <!-- ------------------------------- DIVIDER ------------------------------- -->
+
+        <div
+            class="footer-divider"
+            aria-hidden="true"
+        >
+            ✿
+        </div>
+
+
+        <!-- ------------------------------- COPYRIGHT ---------------------------- -->
+
+        <p class="footer-text">
+            &copy; <span id="year"></span>
+
+            <a href="index.html">blekkspor</a>
+
+            <span aria-hidden="true">·</span>
+
+            <a href="privacy.html">personvern</a>
+        </p>
+
+    </footer>
+
+
+    <!-- ============================ JAVASCRIPT ============================== -->
+
+    <script src="../js/main.js"></script>
+    <script src="../js/story-navigation.js"></script>
+    <script src="../js/story-loader.js"></script>
+
+</body>
+
+</html>
