@@ -43,7 +43,7 @@ async function createStoryNavigation(
 
         setNavigationLink(
             previousLink,
-            publishedStories[currentIndex - 1],
+            publishedstories[currentIndex - 1],
             "← forrige"
         );
 
@@ -58,12 +58,12 @@ async function createStoryNavigation(
 
     if (
         currentIndex !== -1 &&
-        currentIndex < publishedStories.length - 1
+        currentIndex < publishedstories.length - 1
     ) {
 
         setNavigationLink(
             nextLink,
-            publishedStories[currentIndex + 1],
+            publishedstories[currentIndex + 1],
             "neste →"
         );
 
@@ -88,7 +88,7 @@ async function loadStoryInformation(
 
             const story =
                 await fetchJson(
-                    `../STORIES/${entry.file}`
+                    `../stories/${entry.file}`
                 );
 
             return {
