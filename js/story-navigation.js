@@ -43,7 +43,7 @@ async function createStoryNavigation(
 
         setNavigationLink(
             previousLink,
-            publishedstories[currentIndex - 1],
+            publishedStories[currentIndex - 1],
             "← forrige"
         );
 
@@ -58,12 +58,12 @@ async function createStoryNavigation(
 
     if (
         currentIndex !== -1 &&
-        currentIndex < publishedstories.length - 1
+        currentIndex < publishedStories.length - 1
     ) {
 
         setNavigationLink(
             nextLink,
-            publishedstories[currentIndex + 1],
+            publishedStories[currentIndex + 1],
             "neste →"
         );
 

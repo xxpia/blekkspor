@@ -45,7 +45,7 @@ async function loadLatestStories() {
 
         const storyIndex =
             await fetchJson(
-                "DATA/stories.json"
+                "data/stories.json"
             );
 
         if (!Array.isArray(storyIndex)) {
@@ -103,7 +103,7 @@ async function loadHomeStories(
 
             const story =
                 await fetchJson(
-                    `STORIES/${entry.file}`
+                    `stories/${entry.file}`
                 );
 
             return {
@@ -360,7 +360,7 @@ function createHomeStoryUrl(
         );
 
     return (
-        `TEMPLATES/${templateFilename}` +
+        `templates/${templateFilename}` +
         `?id=${encodeURIComponent(story.id)}`
     );
 
