@@ -67,7 +67,7 @@ async function loadArchive() {
 
         const storyIndex =
             await fetchJson(
-                "DATA/stories.json"
+                "data/stories.json"
             );
 
         if (!Array.isArray(storyIndex)) {
@@ -119,7 +119,7 @@ async function loadArchiveStories(
 
             const story =
                 await fetchJson(
-                    `STORIES/${entry.file}`
+                    `stories/${entry.file}`
                 );
 
             return {
