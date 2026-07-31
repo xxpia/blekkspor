@@ -1,3 +1,5 @@
+
+
 /*==============================================================================
     TEMA
 ==============================================================================*/
@@ -117,22 +119,6 @@ function setActiveNavigation() {
 setActiveNavigation();
 
 
-/*==============================================================================
-    LOKAL ADMIN-LENKE
-==============================================================================*/
-
-const adminFooterLink =
-    document.getElementById("admin-footer-link");
-
-const isLocalWebsite =
-    window.location.hostname === "127.0.0.1" ||
-    window.location.hostname === "localhost";
-
-if (adminFooterLink && isLocalWebsite) {
-    adminFooterLink.hidden = false;
-}
-
-
 /* ============================== JSON =================================== */
 
 
@@ -193,3 +179,39 @@ function getTemplateFilename(category) {
     return filename;
 
 }
+
+
+/*==============================================================================
+    ADMIN-LENKE
+==============================================================================*/
+
+/* --------------------------- VIS ADMINLENKE ----------------------------- */
+/*
+    Viser adminlenken lokalt eller dersom administratoren
+    er logget inn på den offentlige nettsiden.
+*/
+
+function updateAdminFooterLink() {
+
+    const adminFooterLink =
+        document.getElementById(
+            "admin-footer-link"
+        );
+
+    if (!adminFooterLink) {
+        return;
+    }
+
+    const isLocalWebsite =
+        window.location.hostname === "127.0.0.1" ||
+        window.location.hostname === "localhost";
+
+    const isAdmin =
+        localStorage.getItem("isAdmin") === "true";
+
+    adminFooterLink.hidden =
+        !isLocalWebsite && !isAdmin;
+
+}
+
+updateAdminFooterLink();
