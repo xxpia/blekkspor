@@ -32,7 +32,7 @@ async function loadStory() {
 
         const storyIndex =
             await fetchJson(
-                "../DATA/stories.json"
+                "../data/stories.json"
             );
 
         if (!Array.isArray(storyIndex)) {
@@ -62,7 +62,7 @@ async function loadStory() {
 
         const story =
             await fetchJson(
-                `../STORIES/${storyEntry.file}`
+                `../stories/${storyEntry.file}`
             );
 
         if (story.published === false) {
