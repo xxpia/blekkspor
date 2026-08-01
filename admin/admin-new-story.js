@@ -48,14 +48,55 @@ const wordCountPreview =
 const formStatus =
     document.getElementById("form-status");
 
+const editorButtons =
+    document.querySelectorAll(
+        ".editor-button"
+    );
+
 const boldButton =
-    document.querySelector('[data-command="bold"]');
+    document.querySelector(
+        '[data-command="bold"]'
+    );
 
 const italicButton =
-    document.querySelector('[data-command="italic"]');
+    document.querySelector(
+        '[data-command="italic"]'
+    );
+
+const alignLeftButton =
+    document.getElementById(
+        "align-left"
+    );
+
+const alignCenterButton =
+    document.getElementById(
+        "align-center"
+    );
+
+const headingTwoButton =
+    document.getElementById(
+        "format-heading-two"
+    );
+
+const headingThreeButton =
+    document.getElementById(
+        "format-heading-three"
+    );
+
+const paragraphButton =
+    document.getElementById(
+        "format-paragraph"
+    );
 
 const dividerButton =
-    document.getElementById("insert-divider");
+    document.getElementById(
+        "insert-divider"
+    );
+
+const featuredInput =
+    document.getElementById(
+        "story-featured"
+    );
 
 
 /* ------------------------------- KATEGORIER ------------------------------- */
@@ -217,33 +258,51 @@ function updateSummaryField() {
     Lagrer markeringen i historieeditoren.
 
     Dette gjør at markert tekst ikke forsvinner når du trykker
-    på fet-, kursiv- eller dividerknappen.
+    på knappene i verktøylinjen.
 */
 
 let savedSelection = null;
 
 
+/* -------------------------- LAGRE MARKERING ------------------------------ */
+
 function saveEditorSelection() {
+
     const selection =
         window.getSelection();
 
-    if (!selection || selection.rangeCount === 0) {
+    if (
+        !selection ||
+        selection.rangeCount === 0
+    ) {
+
         return;
+
     }
 
     const range =
         selection.getRangeAt(0);
 
-    if (!storyEditor.contains(range.commonAncestorContainer)) {
+    if (
+        !storyEditor.contains(
+            range.commonAncestorContainer
+        )
+    ) {
+
         return;
+
     }
 
     savedSelection =
         range.cloneRange();
+
 }
 
 
+/* ------------------------- GJENOPPRETT MARKERING ------------------------- */
+
 function restoreEditorSelection() {
+
     if (!savedSelection) {
         return false;
     }
@@ -252,10 +311,17 @@ function restoreEditorSelection() {
         window.getSelection();
 
     selection.removeAllRanges();
-    selection.addRange(savedSelection);
+
+    selection.addRange(
+        savedSelection
+    );
 
     return true;
+
 }
+
+
+/* ------------------------- OPPDATER MARKERING ---------------------------- */
 
 storyEditor.addEventListener(
     "mouseup",
@@ -267,11 +333,34 @@ storyEditor.addEventListener(
     saveEditorSelection
 );
 
+storyEditor.addEventListener(
+    "input",
+    saveEditorSelection
+);
 
-/* ------------------------------- FORMATERING ------------------------------ */
-/* Legger strong eller em rundt den markerte teksten. */
 
-function formatSelectedText(tagName) {
+/* ----------------------- BEHOLD MARKERING VED KLIKK ---------------------- */
+
+editorButtons.forEach(button => {
+
+    button.addEventListener(
+        "mousedown",
+        event => {
+
+            event.preventDefault();
+
+        }
+    );
+
+});
+
+
+/* --------------------------- FET OG KURSIV ------------------------------- */
+
+function formatSelectedText(
+    tagName
+) {
+
     storyEditor.focus();
 
     if (!restoreEditorSelection()) {
@@ -289,21 +378,34 @@ function formatSelectedText(tagName) {
     }
 
     const formattingElement =
-        document.createElement(tagName);
+        document.createElement(
+            tagName
+        );
 
     try {
-        range.surroundContents(formattingElement);
+
+        range.surroundContents(
+            formattingElement
+        );
+
     } catch {
+
         /*
-            Dersom markeringen går på tvers av flere HTML-elementer,
-            flyttes innholdet inn i det nye elementet i stedet.
+            Dersom markeringen går på tvers av flere elementer,
+            flyttes innholdet inn i det nye elementet.
         */
 
         const selectedContent =
             range.extractContents();
 
-        formattingElement.appendChild(selectedContent);
-        range.insertNode(formattingElement);
+        formattingElement.appendChild(
+            selectedContent
+        );
+
+        range.insertNode(
+            formattingElement
+        );
+
     }
 
     selection.removeAllRanges();
@@ -311,36 +413,334 @@ function formatSelectedText(tagName) {
     const newRange =
         document.createRange();
 
-    newRange.selectNodeContents(formattingElement);
-    selection.addRange(newRange);
+    newRange.selectNodeContents(
+        formattingElement
+    );
+
+    selection.addRange(
+        newRange
+    );
 
     savedSelection =
         newRange.cloneRange();
 
     updateStoryInformation();
+
 }
 
 
-/* Hindrer at markeringen forsvinner når knappene trykkes. */
+boldButton.addEventListener(
+    "click",
+    () => {
 
-boldButton.addEventListener("mousedown", event => {
-    event.preventDefault();
-});
+        formatSelectedText(
+            "strong"
+        );
 
-
-italicButton.addEventListener("mousedown", event => {
-    event.preventDefault();
-});
-
-
-boldButton.addEventListener("click", () => {
-    formatSelectedText("strong");
-});
+    }
+);
 
 
-italicButton.addEventListener("click", () => {
-    formatSelectedText("em");
-});
+italicButton.addEventListener(
+    "click",
+    () => {
+
+        formatSelectedText(
+            "em"
+        );
+
+    }
+);
+
+
+/* ------------------------- FINN VALGTE AVSNITT ---------------------------- */
+
+function getSelectedBlocks() {
+
+    storyEditor.focus();
+
+    if (!restoreEditorSelection()) {
+        return [];
+    }
+
+    const selection =
+        window.getSelection();
+
+    if (
+        !selection ||
+        selection.rangeCount === 0
+    ) {
+        return [];
+    }
+
+    const range =
+        selection.getRangeAt(0);
+
+
+    /*
+        Dersom det bare står en markør i teksten,
+        brukes kun avsnittet markøren står i.
+    */
+
+    if (range.collapsed) {
+
+        let currentNode =
+            range.startContainer;
+
+        if (
+            currentNode.nodeType ===
+            Node.TEXT_NODE
+        ) {
+
+            currentNode =
+                currentNode.parentElement;
+
+        }
+
+        const currentBlock =
+            currentNode?.closest?.(
+                "p, div, h2, h3"
+            );
+
+        if (
+            currentBlock &&
+            storyEditor.contains(
+                currentBlock
+            )
+        ) {
+
+            return [
+                currentBlock
+            ];
+
+        }
+
+        return [];
+
+    }
+
+
+    /*
+        Ved faktisk markering tas bare elementer med som
+        markeringen går inn i – ikke elementer som bare
+        berører markeringens start eller slutt.
+    */
+
+    const blocks =
+        [
+            ...storyEditor.querySelectorAll(
+                ":scope > p, :scope > div, :scope > h2, :scope > h3"
+            )
+        ];
+
+    return blocks.filter(block => {
+
+        const blockRange =
+            document.createRange();
+
+        blockRange.selectNodeContents(
+            block
+        );
+
+        const selectionEndsAfterBlockStarts =
+            range.compareBoundaryPoints(
+                Range.END_TO_START,
+                blockRange
+            ) > 0;
+
+        const selectionStartsBeforeBlockEnds =
+            range.compareBoundaryPoints(
+                Range.START_TO_END,
+                blockRange
+            ) < 0;
+
+        return (
+            selectionEndsAfterBlockStarts &&
+            selectionStartsBeforeBlockEnds
+        );
+
+    });
+
+}
+
+
+/* ---------------------------- TEKSTPLASSERING ---------------------------- */
+
+function alignSelectedBlocks(
+    alignment
+) {
+
+    const blocks =
+        getSelectedBlocks();
+
+    if (blocks.length === 0) {
+        return;
+    }
+
+    blocks.forEach(block => {
+
+        block.classList.remove(
+            "text-left",
+            "text-center"
+        );
+
+        block.classList.add(
+            alignment === "center"
+                ? "text-center"
+                : "text-left"
+        );
+
+    });
+
+    saveEditorSelection();
+
+    updateStoryInformation();
+
+}
+
+
+alignLeftButton.addEventListener(
+    "click",
+    () => {
+
+        alignSelectedBlocks(
+            "left"
+        );
+
+    }
+);
+
+
+alignCenterButton.addEventListener(
+    "click",
+    () => {
+
+        alignSelectedBlocks(
+            "center"
+        );
+
+    }
+);
+
+
+/* ---------------------------- TEKSTTYPE ---------------------------------- */
+
+function changeSelectedBlockType(
+    tagName
+) {
+
+    const blocks =
+        getSelectedBlocks();
+
+    if (blocks.length === 0) {
+        return;
+    }
+
+    const replacementBlocks =
+        blocks.map(block => {
+
+            const replacement =
+                document.createElement(
+                    tagName
+                );
+
+            replacement.innerHTML =
+                block.innerHTML;
+
+            if (
+                block.classList.contains(
+                    "text-center"
+                )
+            ) {
+
+                replacement.classList.add(
+                    "text-center"
+                );
+
+            } else if (
+                block.classList.contains(
+                    "text-left"
+                )
+            ) {
+
+                replacement.classList.add(
+                    "text-left"
+                );
+
+            }
+
+            block.replaceWith(
+                replacement
+            );
+
+            return replacement;
+
+        });
+
+    const selection =
+        window.getSelection();
+
+    const newRange =
+        document.createRange();
+
+    newRange.setStartBefore(
+        replacementBlocks[0]
+    );
+
+    newRange.setEndAfter(
+        replacementBlocks[
+            replacementBlocks.length - 1
+        ]
+    );
+
+    selection.removeAllRanges();
+
+    selection.addRange(
+        newRange
+    );
+
+    savedSelection =
+        newRange.cloneRange();
+
+    updateStoryInformation();
+
+}
+
+
+headingTwoButton.addEventListener(
+    "click",
+    () => {
+
+        changeSelectedBlockType(
+            "h2"
+        );
+
+    }
+);
+
+
+headingThreeButton.addEventListener(
+    "click",
+    () => {
+
+        changeSelectedBlockType(
+            "h3"
+        );
+
+    }
+);
+
+
+paragraphButton.addEventListener(
+    "click",
+    () => {
+
+        changeSelectedBlockType(
+            "p"
+        );
+
+    }
+);
 
 
 /* ------------------------------- SKILLELINJE ------------------------------ */
@@ -349,67 +749,85 @@ italicButton.addEventListener("click", () => {
     en skillelinje.
 */
 
-dividerButton.addEventListener("mousedown", event => {
-    event.preventDefault();
-});
+dividerButton.addEventListener(
+    "click",
+    () => {
 
+        storyEditor.focus();
 
-dividerButton.addEventListener("click", () => {
-    storyEditor.focus();
+        if (!restoreEditorSelection()) {
+            return;
+        }
 
-    if (!restoreEditorSelection()) {
-        return;
+        const selection =
+            window.getSelection();
+
+        const range =
+            selection.getRangeAt(0);
+
+        /*
+            Fjerner tegnet eller teksten som er markert.
+        */
+
+        range.deleteContents();
+
+        const divider =
+            document.createElement(
+                "hr"
+            );
+
+        divider.className =
+            "story-divider";
+
+        range.insertNode(
+            divider
+        );
+
+        /*
+            Lager et tomt avsnitt etter divideren slik at du
+            kan fortsette å skrive eller redigere.
+        */
+
+        const paragraph =
+            document.createElement(
+                "p"
+            );
+
+        paragraph.appendChild(
+            document.createElement(
+                "br"
+            )
+        );
+
+        divider.after(
+            paragraph
+        );
+
+        const newRange =
+            document.createRange();
+
+        newRange.setStart(
+            paragraph,
+            0
+        );
+
+        newRange.collapse(
+            true
+        );
+
+        selection.removeAllRanges();
+
+        selection.addRange(
+            newRange
+        );
+
+        savedSelection =
+            newRange.cloneRange();
+
+        updateStoryInformation();
+
     }
-
-    const selection =
-        window.getSelection();
-
-    const range =
-        selection.getRangeAt(0);
-
-    /*
-        Fjerner tegnet eller teksten som er markert.
-    */
-
-    range.deleteContents();
-
-    const divider =
-        document.createElement("hr");
-
-    divider.className =
-        "story-divider";
-
-    range.insertNode(divider);
-
-    /*
-        Lager et tomt avsnitt etter skillelinjen slik at du kan
-        fortsette å skrive eller redigere.
-    */
-
-    const paragraph =
-        document.createElement("p");
-
-    paragraph.appendChild(
-        document.createElement("br")
-    );
-
-    divider.after(paragraph);
-
-    const newRange =
-        document.createRange();
-
-    newRange.setStart(paragraph, 0);
-    newRange.collapse(true);
-
-    selection.removeAllRanges();
-    selection.addRange(newRange);
-
-    savedSelection =
-        newRange.cloneRange();
-
-    updateStoryInformation();
-});
-
+);
 
 /* ---------------------------- RYDD INNHOLD -------------------------------- */
 /*
@@ -418,86 +836,190 @@ dividerButton.addEventListener("click", () => {
 
     Følgende beholdes:
     - avsnitt
+    - overskrifter
     - linjeskift
     - fet tekst
     - kursiv tekst
+    - venstrejustering
+    - midtstilling
     - skillelinjer
 */
 
 function cleanEditorContent() {
-    const allowedElements = new Set([
-        "P",
-        "DIV",
-        "BR",
-        "STRONG",
-        "B",
-        "EM",
-        "I",
-        "HR"
-    ]);
+
+    const allowedElements =
+        new Set([
+            "P",
+            "DIV",
+            "H2",
+            "H3",
+            "BR",
+            "STRONG",
+            "B",
+            "EM",
+            "I",
+            "HR"
+        ]);
 
     const elements =
-        [...storyEditor.querySelectorAll("*")];
+        [
+            ...storyEditor.querySelectorAll(
+                "*"
+            )
+        ];
 
     elements.forEach(element => {
+
         /*
             Gjør <b> om til <strong>.
         */
 
-        if (element.tagName === "B") {
+        if (
+            element.tagName === "B"
+        ) {
+
             const strong =
-                document.createElement("strong");
+                document.createElement(
+                    "strong"
+                );
 
             strong.innerHTML =
                 element.innerHTML;
 
-            element.replaceWith(strong);
+            element.replaceWith(
+                strong
+            );
 
             return;
+
         }
+
 
         /*
             Gjør <i> om til <em>.
         */
 
-        if (element.tagName === "I") {
+        if (
+            element.tagName === "I"
+        ) {
+
             const emphasis =
-                document.createElement("em");
+                document.createElement(
+                    "em"
+                );
 
             emphasis.innerHTML =
                 element.innerHTML;
 
-            element.replaceWith(emphasis);
+            element.replaceWith(
+                emphasis
+            );
 
             return;
+
         }
+
 
         /*
             Beholder bare riktig klasse på skillelinjer.
         */
 
-        if (element.tagName === "HR") {
-            [...element.attributes].forEach(attribute => {
-                element.removeAttribute(attribute.name);
+        if (
+            element.tagName === "HR"
+        ) {
+
+            [
+                ...element.attributes
+            ].forEach(attribute => {
+
+                element.removeAttribute(
+                    attribute.name
+                );
+
             });
 
             element.className =
                 "story-divider";
 
             return;
+
         }
 
+
         /*
-            Fjerner unødvendige attributter fra tillatte elementer.
+            Beholder bare tillatte tekstplasseringsklasser
+            på avsnitt og overskrifter.
         */
 
-        if (allowedElements.has(element.tagName)) {
-            [...element.attributes].forEach(attribute => {
-                element.removeAttribute(attribute.name);
+        if (
+            element.matches(
+                "p, div, h2, h3"
+            )
+        ) {
+
+            const isCentered =
+                element.classList.contains(
+                    "text-center"
+                );
+
+            const isLeftAligned =
+                element.classList.contains(
+                    "text-left"
+                );
+
+            [
+                ...element.attributes
+            ].forEach(attribute => {
+
+                element.removeAttribute(
+                    attribute.name
+                );
+
+            });
+
+            if (isCentered) {
+
+                element.classList.add(
+                    "text-center"
+                );
+
+            } else if (isLeftAligned) {
+
+                element.classList.add(
+                    "text-left"
+                );
+
+            }
+
+            return;
+
+        }
+
+
+        /*
+            Fjerner attributter fra andre tillatte elementer.
+        */
+
+        if (
+            allowedElements.has(
+                element.tagName
+            )
+        ) {
+
+            [
+                ...element.attributes
+            ].forEach(attribute => {
+
+                element.removeAttribute(
+                    attribute.name
+                );
+
             });
 
             return;
+
         }
+
 
         /*
             Fjerner ukjente HTML-elementer, men beholder teksten
@@ -507,9 +1029,10 @@ function cleanEditorContent() {
         element.replaceWith(
             ...element.childNodes
         );
-    });
-}
 
+    });
+
+}
 
 /* ---------------------------- INNLIMT TEKST ------------------------------- */
 /* Rydder innholdet rett etter at en historie er limt inn. */
@@ -588,35 +1111,81 @@ function getFormattedStoryContent() {
             Eksisterende avsnitt beholdes.
         */
 
-        if (node.tagName === "P") {
-            if (node.textContent.trim()) {
+/*
+    Eksisterende avsnitt og overskrifter beholdes.
+*/
+
+        if (
+            node.tagName === "P" ||
+            node.tagName === "H2" ||
+            node.tagName === "H3"
+        ) {
+
+            if (
+                node.textContent.trim()
+            ) {
+
                 formattedParts.push(
                     node.outerHTML
                 );
+
             }
 
             return;
+
         }
 
         /*
-            Mange programmer limer inn avsnitt som <div>.
-            Disse gjøres om til <p>.
+    Mange programmer limer inn avsnitt som <div>.
+    Disse gjøres om til <p>.
         */
 
-        if (node.tagName === "DIV") {
+        if (
+            node.tagName === "DIV"
+        ) {
+
             const paragraph =
-                document.createElement("p");
+                document.createElement(
+                    "p"
+                );
 
             paragraph.innerHTML =
                 node.innerHTML;
 
-            if (paragraph.textContent.trim()) {
+            if (
+                node.classList.contains(
+                    "text-center"
+                )
+            ) {
+
+                paragraph.classList.add(
+                    "text-center"
+                );
+
+            } else if (
+                node.classList.contains(
+                    "text-left"
+                )
+            ) {
+
+                paragraph.classList.add(
+                    "text-left"
+                );
+
+            }
+
+            if (
+                paragraph.textContent.trim()
+            ) {
+
                 formattedParts.push(
                     paragraph.outerHTML
                 );
+
             }
 
             return;
+
         }
 
         /*
@@ -793,10 +1362,14 @@ function collectStoryData() {
 
         wordCount:
             countWords(storyText),
+        
+        featured:
+            featuredInput.checked,
 
         published:
             true
     };
+
 }
 
 
@@ -920,6 +1493,9 @@ async function saveStory(storyData) {
 
         wordCount:
             storyData.wordCount,
+
+        featured:
+            storyData.featured,
 
         published:
             storyData.published

@@ -171,70 +171,185 @@
                 </div>
 
 
-                <!-- Historie -->
+<!-- Historie -->
 
-                <div class="form-field">
+<div class="form-field">
 
-                    <label class="field-title">
-                        Historie
-                    </label>
+    <label
+        class="field-title"
+        for="story-editor">
 
-                    <div
-                        class="editor-toolbar"
-                        role="toolbar"
-                        aria-label="Formatering av historie"
-                    >
+        Historie
 
-                        <button
-                            type="button"
-                            class="editor-button"
-                            data-command="bold"
-                            aria-label="Fet tekst"
-                            title="Fet tekst"
-                        >
-                            <strong>B</strong>
-                        </button>
-
-                        <button
-                            type="button"
-                            class="editor-button"
-                            data-command="italic"
-                            aria-label="Kursiv tekst"
-                            title="Kursiv tekst"
-                        >
-                            <em>I</em>
-                        </button>
-
-                        <button
-                            type="button"
-                            class="editor-button"
-                            id="insert-divider"
-                            aria-label="Sett inn skillelinje"
-                            title="Sett inn skillelinje"
-                        >
-                            ─
-                        </button>
-
-                    </div>
-
-                    <div
-                        id="story-editor"
-                        class="story-editor"
-                        contenteditable="true"
-                        role="textbox"
-                        aria-multiline="true"
-                        data-placeholder="Lim inn eller skriv historien her."
-                    ></div>
-
-                    <p class="field-help">
-                        Fet og kursiv tekst fra den innlimte teksten beholdes.
-                        Marker tekst for å endre formateringen.
-                    </p>
-
-                </div>
+    </label>
 
 
+    <!-- ------------------------- TEKSTEDITOR ------------------------- -->
 
+    <div class="editor-wrapper">
+
+        <!-- ---------------------- VERKTØYLINJE ----------------------- -->
+
+        <div
+            class="editor-toolbar"
+            role="toolbar"
+            aria-label="Formatering av historie">
+
+            <!-- Fet tekst -->
+
+            <button
+                type="button"
+                class="editor-button"
+                data-command="bold"
+                aria-label="Fet tekst"
+                title="Fet tekst">
+
+                <strong>B</strong>
+
+            </button>
+
+
+            <!-- Kursiv tekst -->
+
+            <button
+                type="button"
+                class="editor-button"
+                data-command="italic"
+                aria-label="Kursiv tekst"
+                title="Kursiv tekst">
+
+                <em>I</em>
+
+            </button>
+
+
+            <span
+                class="editor-toolbar-divider"
+                aria-hidden="true">
+            </span>
+
+
+            <!-- Venstrejustert tekst -->
+
+            <button
+                id="align-left"
+                type="button"
+                class="editor-button"
+                aria-label="Venstrejuster tekst"
+                title="Venstrejuster tekst">
+
+                ⇤
+
+            </button>
+
+
+            <!-- Midtstilt tekst -->
+
+            <button
+                id="align-center"
+                type="button"
+                class="editor-button"
+                aria-label="Midtstill tekst"
+                title="Midtstill tekst">
+
+                ↔
+
+            </button>
+
+
+            <span
+                class="editor-toolbar-divider"
+                aria-hidden="true">
+            </span>
+
+
+            <!-- Stor overskrift -->
+
+            <button
+                id="format-heading-two"
+                type="button"
+                class="editor-button editor-heading-button"
+                aria-label="Stor overskrift"
+                title="Stor overskrift">
+
+                H2
+
+            </button>
+
+
+            <!-- Mindre overskrift -->
+
+            <button
+                id="format-heading-three"
+                type="button"
+                class="editor-button editor-heading-button"
+                aria-label="Mindre overskrift"
+                title="Mindre overskrift">
+
+                H3
+
+            </button>
+
+
+            <!-- Vanlig avsnitt -->
+
+            <button
+                id="format-paragraph"
+                type="button"
+                class="editor-button editor-heading-button"
+                aria-label="Vanlig avsnitt"
+                title="Gjør om til vanlig avsnitt">
+
+                P
+
+            </button>
+
+
+            <span
+                class="editor-toolbar-divider"
+                aria-hidden="true">
+            </span>
+
+
+            <!-- Skillelinje -->
+
+            <button
+                id="insert-divider"
+                type="button"
+                class="editor-button"
+                aria-label="Sett inn skillelinje"
+                title="Sett inn skillelinje">
+
+                ✿
+
+            </button>
+
+        </div>
+
+
+        <!-- ------------------------ SKRIVEFELT ------------------------- -->
+
+        <div
+            id="story-editor"
+            class="story-editor"
+            contenteditable="true"
+            role="textbox"
+            aria-multiline="true"
+            data-placeholder="Lim inn eller skriv historien her.">
+        </div>
+
+    </div>
+
+
+    <p class="field-help">
+
+        Fet og kursiv tekst fra den innlimte teksten beholdes.
+        Marker ett eller flere avsnitt for å endre plassering eller
+        gjøre dem om til overskrifter.
+
+    </p>
+
+</div>
                 <!-- Sammendrag -->
 
                 <fieldset class="form-field summary-options">
@@ -307,6 +422,27 @@
                     </p>
 
                 </div>
+
+                <!-- Stort spor -->
+
+                <fieldset class="form-field summary-options">
+
+                    <legend class="field-title">
+                        Forsiden
+                    </legend>
+
+                    <label class="radio-option">
+
+                        <input
+                            id="story-featured"
+                            type="checkbox"
+                        >
+
+                        Vis som stort spor på forsiden
+
+                    </label>
+
+                </fieldset>
 
 
                 <!-- Forhåndsvisning av informasjon -->

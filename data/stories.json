@@ -1,10 +1,222 @@
 [
     {
+        "id": "6-ord",
+        "file": "6-ord.json"
+    },
+    {
+        "id": "a-ikke-kunne-si",
+        "file": "a-ikke-kunne-si.json"
+    },
+    {
+        "id": "a-tro-kan-bety-mange-ting",
+        "file": "a-tro-kan-bety-mange-ting.json"
+    },
+    {
+        "id": "against-all-odds",
+        "file": "against-all-odds.json"
+    },
+    {
+        "id": "alt-er-deprimerende-om-du-ser-lenge-nok",
+        "file": "alt-er-deprimerende-om-du-ser-lenge-nok.json"
+    },
+    {
+        "id": "alt-vil-bli-bra",
+        "file": "alt-vil-bli-bra.json"
+    },
+    {
+        "id": "bassenget",
+        "file": "bassenget.json"
+    },
+    {
+        "id": "beistet",
+        "file": "beistet.json"
+    },
+    {
+        "id": "bestevenner-gjennom-evigheten",
+        "file": "bestevenner-gjennom-evigheten.json"
+    },
+    {
+        "id": "biltrobbel",
+        "file": "biltrobbel.json"
+    },
+    {
+        "id": "bolgen",
+        "file": "bolgen.json"
+    },
+    {
+        "id": "darehuset",
+        "file": "darehuset.json"
+    },
+    {
         "id": "dassvann",
         "file": "dassvann.json"
     },
     {
+        "id": "day-and-night",
+        "file": "day-and-night.json"
+    },
+    {
+        "id": "den-siste-reisen",
+        "file": "den-siste-reisen.json"
+    },
+    {
+        "id": "dodens-tak",
+        "file": "dodens-tak.json"
+    },
+    {
         "id": "dove-orer",
         "file": "dove-orer.json"
+    },
+    {
+        "id": "drittunger",
+        "file": "drittunger.json"
+    },
+    {
+        "id": "du-gar",
+        "file": "du-gar.json"
+    },
+    {
+        "id": "du-jeg",
+        "file": "du-jeg.json"
+    },
+    {
+        "id": "ei-jente",
+        "file": "ei-jente.json"
+    },
+    {
+        "id": "en-til-er",
+        "file": "en-til-er.json"
+    },
+    {
+        "id": "enklere",
+        "file": "enklere.json"
+    },
+    {
+        "id": "evigheten",
+        "file": "evigheten.json"
+    },
+    {
+        "id": "fanget-i-speilet",
+        "file": "fanget-i-speilet.json"
+    },
+    {
+        "id": "fantasi",
+        "file": "fantasi.json"
+    },
+    {
+        "id": "feig",
+        "file": "feig.json"
+    },
+    {
+        "id": "for-alltid",
+        "file": "for-alltid.json"
+    },
+    {
+        "id": "frykt-for-venner",
+        "file": "frykt-for-venner.json"
+    },
+    {
+        "id": "glasskar",
+        "file": "glasskar.json"
+    },
+    {
+        "id": "gledelig-jul",
+        "file": "gledelig-jul.json"
+    },
+    {
+        "id": "groftekant",
+        "file": "groftekant.json"
+    },
+    {
+        "id": "groftekantbarn",
+        "file": "groftekantbarn.json"
+    },
+    {
+        "id": "gunnar",
+        "file": "gunnar.json"
+    },
+    {
+        "id": "har-du-sett-meg",
+        "file": "har-du-sett-meg.json"
+    },
+    {
+        "id": "havet",
+        "file": "havet.json"
+    },
+    {
+        "id": "julekalender",
+        "file": "julekalender.json"
+    },
+    {
+        "id": "knute",
+        "file": "knute.json"
+    },
+    {
+        "id": "kulehull",
+        "file": "kulehull.json"
+    },
+    {
+        "id": "mari",
+        "file": "mari.json"
+    },
+    {
+        "id": "minner",
+        "file": "minner.json"
+    },
+    {
+        "id": "moving-toward-life",
+        "file": "moving-toward-life.json"
+    },
+    {
+        "id": "perfekt-hostdag",
+        "file": "perfekt-hostdag.json"
+    },
+    {
+        "id": "se-pa-meg",
+        "file": "se-pa-meg.json"
+    },
+    {
+        "id": "skalskal-ikke",
+        "file": "skalskal-ikke.json"
+    },
+    {
+        "id": "skjaera",
+        "file": "skjaera.json"
+    },
+    {
+        "id": "sminke",
+        "file": "sminke.json"
+    },
+    {
+        "id": "spasme",
+        "file": "spasme.json"
+    },
+    {
+        "id": "stasjonen",
+        "file": "stasjonen.json"
+    },
+    {
+        "id": "sweet-dreams",
+        "file": "sweet-dreams.json"
+    },
+    {
+        "id": "tarer-av-blod",
+        "file": "tarer-av-blod.json"
+    },
+    {
+        "id": "the-lamb-and-the-wolf",
+        "file": "the-lamb-and-the-wolf.json"
+    },
+    {
+        "id": "tid",
+        "file": "tid.json"
+    },
+    {
+        "id": "toget",
+        "file": "toget.json"
+    },
+    {
+        "id": "uten-navn",
+        "file": "uten-navn.json"
     }
 ]

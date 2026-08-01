@@ -466,11 +466,13 @@ h1 {
     gap: 0.35rem;
 }
 
-.archive-description {
+.archive-description,
+.archive-count {
     margin: 0;
 
     font-size: 0.9rem;
     font-style: italic;
+    text-align: center;
 
     color: var(--text-muted);
 }
@@ -483,6 +485,7 @@ h1 {
     color: var(--link-hover);
     text-decoration: underline;
 }
+
 
 /* ------------------------------- 404 ---------------------------------------- */
 /* Feilmelding når en side ikke finnes. */
@@ -597,6 +600,62 @@ h1 {
     margin-bottom: 1.5rem;
 }
 
+/* ---------------------- EGENDESIGNET FORMATERING ---------------------- */
+
+.story-body .text-left {
+    text-align: left;
+}
+
+.story-body .text-center {
+    text-align: center;
+}
+
+.story-body h2 {
+    margin: 3rem 0 1.5rem;
+
+    font-size: 2rem;
+    line-height: 1.3;
+
+    text-align: left;
+}
+
+.story-body h3 {
+    margin: 2rem 0 1rem;
+
+    font-size: 1.5rem;
+    line-height: 1.35;
+
+    text-align: left;
+}
+
+.story-space {
+    margin: 3rem 0;
+}
+
+/* ---------------------------------------------------------------------- */
+
+
+.story-body hr {
+    width: auto;
+    margin: 3.5rem auto;
+
+    border: none;
+
+    text-align: center;
+}
+
+.story-body hr::after {
+    content: "✿";
+
+    display: inline-block;
+
+    color: var(--text-muted);
+
+    font-size: 0.85rem;
+
+    opacity: 0.4;
+}
+
 
 /* ------------------------------- STORY META --------------------------------- */
 /* Informasjon om historien, samt navigasjon mellom historier. */
@@ -655,6 +714,7 @@ h1 {
 .story-comment {
     margin-top: 2rem;
     padding-top: 1.5rem;
+    margin-bottom: 2rem;
 
     border-top: 1px solid var(--border);
 }
@@ -738,7 +798,7 @@ h1 {
 }
 
 .story-excerpt .story-body {
-    font-family: "Courier New", monospace;
+    font-size: large;
     line-height: 2;
 }
 

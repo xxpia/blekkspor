@@ -11,6 +11,7 @@
     --link: #b9912c;
     --link-hover: #96741f;
 
+
     --border: #ded6c7;
 
     --text-muted: #777;
@@ -390,7 +391,8 @@ footer {
     SKJEMA
 ==============================================================================*/
 
-#new-story-form {
+#new-story-form,
+#edit-story-form {
     width: 100%;
     max-width: 42rem;
     margin: 0 auto;
@@ -502,60 +504,191 @@ footer {
     EDITOR
 ==============================================================================*/
 
+/* ---------------------------- EDITORRAMME ------------------------------- */
+
+.editor-wrapper {
+    width: 100%;
+
+    border: 1px solid var(--border);
+
+    background: var(--background);
+}
+
+
+/* --------------------------- VERKTØYLINJE ------------------------------- */
+
 .editor-toolbar {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-bottom: 0.75rem;
+
+    margin: 0;
+    padding: 0.75rem;
+
+    border-bottom: 1px solid var(--border);
+
+    background: var(--background);
 }
+
+
+/* --------------------------- VERKTØYKNAPPER ----------------------------- */
 
 .editor-button {
     min-width: 2.75rem;
     min-height: 2.5rem;
+
+    padding: 0.3rem 0.55rem;
+
     border: 1px solid var(--border);
+
     background: var(--background);
     color: var(--text);
+
     cursor: pointer;
+
     font: inherit;
+    line-height: 1;
+}
+
+.editor-heading-button {
+    font-size: 0.85rem;
+    font-weight: 600;
 }
 
 .editor-button:hover,
 .editor-button:focus-visible {
     border-color: var(--link);
-    color: var(--link);
-}
 
-.story-editor {
-    min-height: 28rem;
-    border: 1px solid var(--border);
-    padding: 1.25rem;
-    background: var(--background);
-    color: var(--text);
-    line-height: 1.8;
+    color: var(--link);
+
     outline: none;
 }
 
-.story-editor:focus {
-    border-color: var(--link);
+
+/* ------------------------ DELER I VERKTØYLINJEN ------------------------- */
+
+.editor-toolbar-divider {
+    width: 1px;
+    height: 1.75rem;
+
+    margin: 0 0.15rem;
+
+    background: var(--border);
 }
+
+
+/* ----------------------------- SKRIVEFELT ------------------------------- */
+
+.story-editor {
+    width: 100%;
+
+    height: 32rem;
+    min-height: 32rem;
+    max-height: 32rem;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding: 1.25rem;
+
+    border: 0;
+
+    background: var(--background);
+    color: var(--text);
+
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.8;
+
+    text-align: left;
+
+    outline: none;
+
+    overscroll-behavior: contain;
+}
+
+.story-editor:focus {
+    box-shadow:
+        inset 0 0 0 1px var(--link);
+}
+
+
+/* --------------------------- PLASSHOLDER ------------------------------- */
 
 .story-editor:empty::before {
     content: attr(data-placeholder);
+
     color: var(--text-subtle);
+
     pointer-events: none;
 }
+
+
+/* ------------------------- AVSNITT OG OVERSKRIFTER ---------------------- */
 
 .story-editor p,
 .story-editor div {
     margin: 0 0 1.25rem;
+
+    text-align: left;
 }
 
+.story-editor h2 {
+    margin: 2.5rem 0 1.25rem;
+
+    font-size: 1.8rem;
+    line-height: 1.3;
+}
+
+.story-editor h3 {
+    margin: 2rem 0 1rem;
+
+    font-size: 1.4rem;
+    line-height: 1.35;
+}
+
+
+/* -------------------------- TEKSTPLASSERING ----------------------------- */
+
+.story-editor p.text-left,
+.story-editor div.text-left,
+.story-editor h2.text-left,
+.story-editor h3.text-left {
+    text-align: left;
+}
+
+.story-editor p.text-center,
+.story-editor div.text-center,
+.story-editor h2.text-center,
+.story-editor h3.text-center {
+    text-align: center;
+}
+
+
+/* ----------------------------- SKILLELINJE ------------------------------ */
+
 .story-editor .story-divider {
-    width: 3rem;
-    margin: 2.5rem auto;
+    width: auto;
+
+    margin: 3rem auto;
+
     border: 0;
-    border-top: 1px solid var(--border);
+
+    text-align: center;
+}
+
+.story-editor .story-divider::after {
+    content: "✿";
+
+    display: inline-block;
+
+    color: var(--text-muted);
+
+    font-size: 0.85rem;
+
+    opacity: 0.45;
 }
 
 
@@ -707,6 +840,20 @@ footer {
 
     .primary-button {
         width: 100%;
+    }
+
+    .story-editor {
+    height: 24rem;
+    min-height: 24rem;
+    max-height: 24rem;
+    }
+
+    .editor-toolbar {
+        justify-content: flex-start;
+    }
+
+    .editor-toolbar-divider {
+        display: none;
     }
 
 }
