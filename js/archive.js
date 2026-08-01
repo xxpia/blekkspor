@@ -46,6 +46,10 @@ const archiveDescription =
         "archive-description"
     );
 
+const archiveCount =
+    document.getElementById(
+        "archive-count"
+    );
 
 /* ---------------------------- LAST ARKIV ------------------------------- */
 
@@ -147,21 +151,23 @@ function displayArchive(stories) {
 
     const selectedCategory =
         getSelectedCategory();
-        
 
     const selectedSort =
         getSelectedSort();
 
+
     if (archiveCategory) {
 
-    archiveCategory.value =
-        selectedCategory;
+        archiveCategory.value =
+            selectedCategory;
 
     }
+
 
     updateArchiveSection(
         selectedCategory
     );
+
 
     const filteredStories =
         filterStoriesByCategory(
@@ -169,11 +175,18 @@ function displayArchive(stories) {
             selectedCategory
         );
 
+
     const sortedStories =
         sortStories(
             filteredStories,
             selectedSort
         );
+
+
+    updateArchiveCount(
+        sortedStories.length
+    );
+
 
     archiveList.replaceChildren();
 
@@ -191,12 +204,18 @@ function displayArchive(stories) {
 
     const storyCards =
         sortedStories.map(story => {
-            return createStoryCard(story);
+
+            return createStoryCard(
+                story
+            );
+
         });
+
 
     archiveList.append(
         ...storyCards
     );
+
 
     setArchiveStatus("");
 
@@ -235,13 +254,8 @@ function createStoryCard(story) {
     link.href =
         createStoryUrl(story);
 
-    const isYear =
-        /^\d{4}$/.test(story.date ?? "");
-
     link.textContent =
-        isYear
-            ? `${story.title} (${story.date})`
-            : story.title;
+        story.title;
 
     title.appendChild(
         link
@@ -381,6 +395,30 @@ function updateArchiveSection(
             section.description;
 
     }
+
+}
+
+/* -------------------------- ANTALL TEKSTER ----------------------------- */
+
+function updateArchiveCount(
+    storyCount
+) {
+
+    if (!archiveCount) {
+        return;
+    }
+
+    if (storyCount === 1) {
+
+        archiveCount.textContent =
+            "1 tekst";
+
+        return;
+
+    }
+
+    archiveCount.textContent =
+        `${storyCount} tekster`;
 
 }
 

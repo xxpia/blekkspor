@@ -6,8 +6,6 @@
 
 /* ------------------------------ INNSTILLINGER --------------------------- */
 
-const latestStoryLimit = 3;
-
 
 /* ------------------------------- OPPSTART ------------------------------- */
 
@@ -66,16 +64,15 @@ async function loadLatestStories() {
                 return story.published !== false;
             });
 
-        const latestStories =
-            sortLatestStories(
-                publishedStories
-            ).slice(
-                0,
-                latestStoryLimit
-            );
+        const featuredStories =
+            publishedStories.filter(story => {
+
+                return story.featured === true;
+
+            });
 
         displayLatestStories(
-            latestStories
+            featuredStories
         );
 
     } catch (error) {
@@ -260,30 +257,8 @@ function createLatestStoryCard(
             story
         );
 
-    const isYear =
-    /^\d{4}$/.test(story.date ?? "");
-
-titleLink.textContent =
-    story.title;
-
-if (isYear) {
-
-    const year =
-        document.createElement(
-            "span"
-        );
-
-    year.className =
-        "latest-story-year";
-
-    year.textContent =
-        ` (${story.date})`;
-
-    titleLink.appendChild(
-        year
-    );
-
-}
+    titleLink.textContent =
+        story.title;
 
     title.appendChild(
         titleLink
