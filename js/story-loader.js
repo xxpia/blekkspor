@@ -124,21 +124,6 @@ function displayStory(story) {
             "story-title"
         );
 
-    const category =
-        document.getElementById(
-            "story-category"
-        );
-
-    const date =
-        document.getElementById(
-            "story-date"
-        );
-
-    const dateSeparator =
-        document.getElementById(
-            "story-meta-separator"
-        );
-
     const body =
         document.getElementById(
             "story-body"
@@ -152,6 +137,11 @@ function displayStory(story) {
     const informationCategory =
         document.getElementById(
             "story-info-category"
+        );
+
+    const informationDate =
+        document.getElementById(
+            "story-info-date"
         );
 
     const wordCount =
@@ -180,13 +170,6 @@ function displayStory(story) {
         story.category ||
         "";
 
-    if (category) {
-
-        category.textContent =
-            categoryLabel;
-
-    }
-
     if (informationCategory) {
 
         informationCategory.textContent =
@@ -197,11 +180,12 @@ function displayStory(story) {
 
     /* Dato */
 
-    displayStoryDate(
-        date,
-        dateSeparator,
-        story.date
-    );
+    if (informationDate) {
+
+        informationDate.textContent =
+            story.date || "";
+
+    }
 
 
     /* Historietekst */
@@ -230,52 +214,6 @@ function displayStory(story) {
             getStoryWordCount(
                 story
             );
-
-    }
-
-}
-
-
-/* ----------------------------- VIS DATO -------------------------------- */
-
-function displayStoryDate(
-    dateElement,
-    separatorElement,
-    storyDate
-) {
-
-    if (!dateElement) {
-        return;
-    }
-
-
-    if (storyDate) {
-
-        dateElement.textContent =
-            storyDate;
-
-        dateElement.hidden =
-            false;
-
-        if (separatorElement) {
-
-            separatorElement.hidden =
-                false;
-
-        }
-
-        return;
-
-    }
-
-
-    dateElement.hidden =
-        true;
-
-    if (separatorElement) {
-
-        separatorElement.hidden =
-            true;
 
     }
 
