@@ -328,7 +328,7 @@ function createStoryUrl(story) {
         );
 
     return (
-        `TEMPLATES/${templateFilename}` +
+        `templates/${templateFilename}` +
         `?id=${encodeURIComponent(story.id)}`
     );
 
